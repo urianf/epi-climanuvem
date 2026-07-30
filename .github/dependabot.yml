@@ -1,0 +1,56 @@
+version: 2
+updates:
+  # Frontend (npm)
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "urianf"
+    labels:
+      - "frontend"
+      - "typescript"
+ 
+  # Backend (pip)
+  - package-ecosystem: "pip"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "urianf"
+    labels:
+      - "backend"
+      - "python"
+ 
+  # Backend Docker image
+  - package-ecosystem: "docker"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "urianf"
+    labels:
+      - "docker"
+      - "backend"
+ 
+  # Frontend Docker image
+  - package-ecosystem: "docker"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "urianf"
+    labels:
+      - "docker"
+      - "frontend"
+ 
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    assignees:
+      - "urianf"
+    labels:
+      - "actions"
+ 

@@ -39,3 +39,6 @@ frontend/google-services.json
 *.p12
 *.p8
 frontend/GoogleService-Info.plist
+
+# Sphinx build output
+docs/_build/

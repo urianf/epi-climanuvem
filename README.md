@@ -2,6 +2,7 @@
 
 [![CI/CD](https://github.com/uo289165/epi-climanuvem/actions/workflows/ci-cd.yml/badge.svg?branch=main)](https://github.com/uo289165/epi-climanuvem/actions/workflows/ci-cd.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=uo289165_epi-climanuvem&metric=alert_status)](https://sonarcloud.io/summary/overall?id=uo289165_epi-climanuvem)
+[![Documentation](https://img.shields.io/badge/docs-Sphinx-blue?logo=readthedocs&logoColor=white)](https://urianf.github.io/epi-climanuvem/)
 
 ClimaNuvem is a mobile application for analyzing cloud photographs and generating a short-term local weather forecast based on the detected cloud types. Users can sign in or continue as guests, take a picture or select one from the gallery, send it to the backend, classify the clouds with a multimodal model served by Ollama, and review previous analyses from the mobile app.
 
@@ -11,6 +12,7 @@ The project combines an Expo/React Native app, a FastAPI backend, Firebase authe
 
 - [What Is ClimaNuvem](#what-is-climanuvem)
 - [User Requirements](#user-requirements)
+- [Technical Documentation](#technical-documentation)
 - [Application UI](#application-ui)
 - [Architecture](#architecture)
 - [Local Deployment](#local-deployment)
@@ -48,14 +50,27 @@ The formal user requirements for ClimaNuvem are documented in the `docs/` direct
 
 These documents describe the expected user-facing behavior of the application, including authentication, registration, image upload, cloud analysis, weather forecasting, risk warnings, analysis cancellation, history access, and explainability results.
 
+## Technical Documentation
+
+The technical documentation of the backend is auto-generated with **Sphinx** from the `docs/` directory and deployed automatically to GitHub Pages by the CI pipeline on every push to `main` and on version tags:
+
+- **Technical documentation (API Reference)**: [https://urianf.github.io/epi-climanuvem/](https://urianf.github.io/epi-climanuvem/)
+
+To build it locally:
+
+```bash
+pip install -r backend/requirements.txt -r backend/requirements-dev.txt
+sphinx-build -b html docs docs/_build/html
+```
+
 ## Application UI
 
-| Welcome | Sign In | Register | Home |
-| --- | --- | --- | --- |
+| Welcome                                                                       | Sign In                                                          | Register                                                                     | Home                                                                            |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | <img src="images/ui-welcome.jpg" alt="ClimaNuvem welcome screen" width="180"> | <img src="images/ui-login.jpg" alt="Sign-in screen" width="180"> | <img src="images/ui-register.jpg" alt="Account creation screen" width="180"> | <img src="images/ui-home.jpg" alt="Home screen with quick actions" width="180"> |
 
-| Profile And Settings | Image Upload | History | Results |
-| --- | --- | --- | --- |
+| Profile And Settings                                                                                               | Image Upload                                                                                                                       | History                                                                       | Results                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | <img src="images/ui-profile-settings.jpg" alt="Profile, theme, language, and account deletion screen" width="180"> | <img src="images/ui-analysis-upload.jpg" alt="Screen to take a photo, select from gallery, and enable explainability" width="180"> | <img src="images/ui-history.jpg" alt="Previous analysis history" width="180"> | <img src="images/ui-analysis-results.jpg" alt="Analysis detail with detected cloud types" width="180"> |
 
 ## Architecture
@@ -279,6 +294,10 @@ npm test
 npm run test:coverage
 npm run lint
 ```
+
+End-to-end system tests are maintained in a separate repository:
+
+- **E2E test suite (RETORCH)**: [https://github.com/augustocristian/retorch-st-climanuvem](https://github.com/augustocristian/retorch-st-climanuvem)
 
 SonarCloud reads coverage from:
 
