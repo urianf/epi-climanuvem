@@ -23,7 +23,7 @@
     "expo": "~54.0.33",
     "expo-auth-session": "~7.0.10",
     "expo-camera": "~17.0.10",
-    "expo-constants": "~18.0.13",
+    "expo-constants": "~57.0.7",
     "expo-crypto": "~15.0.8",
     "expo-device": "~8.0.10",
     "expo-file-system": "~19.0.21",
